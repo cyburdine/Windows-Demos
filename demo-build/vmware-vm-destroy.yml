@@ -1,0 +1,19 @@
+- name: Destroy Specified VMware Instance
+  hosts: localhost
+  connection: local
+  gather_facts: False
+  
+  vars:
+    vcenter_name: 172.16.32.2
+    vcenter_user: administrator
+    vcenter_pass: Ag2c4u?!
+    vm_name: jbWinVM
+ 
+  tasks: 
+  - vsphere_guest:
+      vcenter_hostname: "{{ vcenter_name }}"
+      username: "{{ vcenter_user }}"
+      password: "{{ vcenter_pass }}"
+      guest: "{{ vm_name }}"
+      state: absent
+      force: yes
