@@ -14,10 +14,9 @@
         name: "Energy"
         state: started
         port: 80
-        ip: 127.0.0.1
-#       hostname: acme.local
-        application_pool: "energy"
-        physical_path: c:\sites\energy
+        ip: 10.0.100.53
+        application_pool: DefaultAppPool
+        physical_path: c:\sites\energy\factory-html\
         parameters: logfile.directory:c:\sites\logs
       register: website
 
