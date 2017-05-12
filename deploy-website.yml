@@ -27,12 +27,15 @@
         state: absent
 
     - name: Pull down website and unpack it
-      unarchive:
-        src: 'https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip'
-        dest: 'C:\sites\energy'
-        remote_src: True
+        url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip
+        dest: C:\sites\energy
 
-#    - name: Unpack Website
-#      win_unzip:
-#       src: C:\Windows\tmp\energy_website_theme.zip
-#       dest: C:\sites\energy\
+    - name: Unpack website
+      win_unzip:
+       src: C:\sites\energy\energy_website_theme.zip
+       dest: C:\sites\energy\
+
+    - name: Remove the website zip file, if present
+      win_file:
+        path: C:\sites\energy\energy_website_theme.zip
+        state: absent
