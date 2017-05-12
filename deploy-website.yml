@@ -4,6 +4,11 @@
   gather_facts: false
 
   tasks:
+    - name: Create directory structure
+      win_file:
+        path: C:\sites\energy
+        state: directory
+
     - name: Setting up Energy IIS site
       win_iis_website:
         name: "Energy"
