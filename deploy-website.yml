@@ -1,11 +1,32 @@
 ---
-# This playbook uses the win_get_url module to download a simple HTML file for IIS
-- name: Download simple web site 
+- name: Download, Unpack and Deploy Energy website
   hosts: all 
-
   gather_facts: false
+
   tasks:
-    - name: Download simple web site to 'C:\inetpub\wwwroot\ansible.html'
+    - name: Setting up Energy IIS site
+      win_iis_website:
+        name: "Energy"
+        state: started
+        port: 80
+        ip: 127.0.0.1
+#       hostname: acme.local
+        application_pool: "energy"
+        physical_path: c:\sites\energy
+        parameters: logfile.directory:c:\sites\logs
+      register: website
+
+    - name: Remove Default Web Site
+      win_iis_website:
+        name: "Default Web Site"
+        state: absent
+
+    - name: Download simple web site to 'C:\Windows\tmp\'
       win_get_url:
-        url: 'https://raw.githubusercontent.com/thisdavejohnson/mywebapp/master/index.html'
-        dest: 'C:\inetpub\wwwroot\ansible.html'
+        url: 'https://github.com/cyburdine/Windows-Demos/blob/master/files/energy_website_theme.zip?raw=true'
+        dest: 'C:\Windows\tmp\energy_website_theme.zip'
+
+    - name: Unpack Website
+      win_unzip:
+        src: C:\Windows\tmp\energy_website_theme.zip
+        dest: C:\sites\energy\
