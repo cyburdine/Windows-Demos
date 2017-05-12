@@ -1,0 +1,23 @@
+---
+- name: Enable / Disable IIS
+  hosts: windows
+  gather_facts: false
+
+  vars:
+###
+### The following vars must be set in order to run
+###
+#
+#    my_state: [present | absent]
+#
+###
+  tasks:
+    - name: Install IIS
+      win_feature:
+        name: "Web-Server"
+        state: "{{ my_state }}"
+        restart: yes
+        include_sub_features: yes
+        include_management_tools: yes
+    - win_reboot:
+      when: my_state == "absent"
