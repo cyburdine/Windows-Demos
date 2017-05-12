@@ -30,6 +30,8 @@
       win_get_url:
         url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip
         dest: C:\sites\energy
+        skip_certificate_validation: true
+        force: true
 
     - name: Unpack website
       win_unzip:
