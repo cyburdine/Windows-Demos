@@ -28,7 +28,7 @@
 
     - name: Download simple web site to 'C:\Windows\tmp\'
       win_get_url:
-        url: 'https://github.com/cyburdine/Windows-Demos/raw/master/files/energy_website_theme.zip'
+        url: 'https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip'
         dest: 'C:\Windows\tmp\energy_website_theme.zip'
 
     - name: Unpack Website
