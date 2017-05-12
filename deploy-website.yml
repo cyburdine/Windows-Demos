@@ -27,7 +27,7 @@
         state: absent
 
     - name: Pull down website and unpack it
-        url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip
+      url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip
         dest: C:\sites\energy
 
     - name: Unpack website
