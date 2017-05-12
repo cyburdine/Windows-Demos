@@ -4,12 +4,12 @@
   gather_facts: false
 
   tasks:
-    - name: Ensure website directory structure exists
-      win_file:
-        path: C:\sites
-        state: absent
-
     - name: Setting up Energy IIS site
       win_iis_website:
         name: "Energy"
+        state: absent
+
+    - name: Ensure website directory structure exists
+      win_file:
+        path: C:\sites
         state: absent
