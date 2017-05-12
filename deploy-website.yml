@@ -14,19 +14,19 @@
 
     - name: Pull down website code from GitHub
       win_get_url:
-        url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/"{{ webarchive }}"
-        dest: C:\sites\energy\"{{ webarchive }}"
+        url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/{{ webarchive }}
+        dest: C:\sites\energy\{{ webarchive }}
         skip_certificate_validation: true
         force: true
 
     - name: Unpack website
       win_unzip:
-       src: C:\sites\energy\"{{ webarchive }}"
+       src: C:\sites\energy\{{ webarchive }}
        dest: C:\sites\energy\
 
     - name: Remove the website zip file, if present
       win_file:
-        path: C:\sites\energy\"{{ webarchive }}"
+        path: C:\sites\energy\{{ webarchive }}
         state: absent
 
     - name: Remove Default Web Site
