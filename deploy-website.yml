@@ -4,28 +4,12 @@
   gather_facts: false
 
   tasks:
-    - name: Create directory structure
+    - name: Ensure website directory structure exists
       win_file:
         path: C:\sites\energy
         state: directory
 
-    - name: Setting up Energy IIS site
-      win_iis_website:
-        name: "Energy"
-        state: started
-        port: 80
-        ip: 10.0.100.53
-        application_pool: DefaultAppPool
-        physical_path: c:\sites\energy\factory-html\
-        parameters: logfile.directory:c:\sites\logs
-      register: website
-
-    - name: Remove Default Web Site
-      win_iis_website:
-        name: "Default Web Site"
-        state: absent
-
-    - name: Pull down website and unpack it
+    - name: Pull down website code from GitHub
       win_get_url:
         url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip
         dest: C:\sites\energy\energy_website_theme.zip
@@ -41,3 +25,19 @@
       win_file:
         path: C:\sites\energy\energy_website_theme.zip
         state: absent
+
+    - name: Remove Default Web Site
+      win_iis_website:
+        name: "Default Web Site"
+        state: absent
+
+    - name: Setting up Energy IIS site
+      win_iis_website:
+        name: "Energy"
+        state: started
+        port: 80
+        ip: 10.0.100.53
+        application_pool: DefaultAppPool
+        physical_path: c:\sites\energy\factory-html\
+        parameters: logfile.directory:c:\sites\logs
+      register: website
