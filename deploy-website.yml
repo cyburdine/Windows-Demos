@@ -11,19 +11,19 @@
 
     - name: Pull down website code from GitHub
       win_get_url:
-        url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip
-        dest: C:\sites\energy\energy_website_theme.zip
+        url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website.zip
+        dest: C:\sites\energy\energy_website.zip
         skip_certificate_validation: true
         force: true
 
     - name: Unpack website
       win_unzip:
-       src: C:\sites\energy\energy_website_theme.zip
+       src: C:\sites\energy\energy_website.zip
        dest: C:\sites\energy\
 
     - name: Remove the website zip file, if present
       win_file:
-        path: C:\sites\energy\energy_website_theme.zip
+        path: C:\sites\energy\energy_website.zip
         state: absent
 
     - name: Remove Default Web Site
@@ -38,6 +38,6 @@
         port: 80
         ip: 10.0.100.53
         application_pool: DefaultAppPool
-        physical_path: c:\sites\energy\factory-html\
+        physical_path: c:\sites\energy\
         parameters: logfile.directory:c:\sites\logs
       register: website
