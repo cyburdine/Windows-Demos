@@ -29,7 +29,7 @@
     - name: Pull down website and unpack it
       win_get_url:
         url: https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip
-        dest: C:\sites\energy
+        dest: C:\sites\energy\energy_website_theme.zip
         skip_certificate_validation: true
         force: true
 
