@@ -26,12 +26,13 @@
         name: "Default Web Site"
         state: absent
 
-    - name: Download simple web site to 'C:\Windows\tmp\'
-      win_get_url:
-        url: 'https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip'
+    - name: Pull down website and unpack it
+      unarchive:
+        src: 'https://raw.githubusercontent.com/cyburdine/Windows-Demos/master/files/energy_website_theme.zip'
         dest: 'C:\sites\energy'
+        remote_src: True
 
-    - name: Unpack Website
-      win_unzip:
-        src: C:\Windows\tmp\energy_website_theme.zip
-        dest: C:\sites\energy\
+#    - name: Unpack Website
+#      win_unzip:
+#       src: C:\Windows\tmp\energy_website_theme.zip
+#       dest: C:\sites\energy\
