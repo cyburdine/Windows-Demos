@@ -26,9 +26,9 @@
 
   tasks: 
   - vsphere_guest:
-      vcenter_hostname: "{{ vcenter_name }}"
-      username: "{{ vcenter_user }}"
-      password: "{{ vcenter_pass }}"
+#      vcenter_hostname: "{{ vcenter_name }}"
+#      username: "{{ vcenter_user }}"
+#      password: "{{ vcenter_pass }}"
       guest: "{{ vm_name }}"
       from_template: yes
       template_src: "{{ vm_template }}"
