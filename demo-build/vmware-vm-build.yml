@@ -30,7 +30,6 @@
       vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
       username: "{{ lookup('env', 'VMWARE_USER') }}"
       password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
-      state: powered_on
       guest: "{{ vm_name }}"
       from_template: yes
       template_src: "{{ vm_template }}"
