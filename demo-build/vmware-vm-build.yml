@@ -1,5 +1,5 @@
 - name: Provision instances
-#  hosts: localhost
+  hosts: all
   connection: local
   gather_facts: False
 
