@@ -4,13 +4,18 @@
   gather_facts: False
   
   vars:
-    vcenter_name: 172.16.32.2
-    vcenter_user: administrator
-    vcenter_pass: Ag2c4u?!
-    vm_name: jbWinVM
- 
+##
+## The following variables need to be set for this playbook to run
+##
+#    vcenter_name: [enter vcenter hostname]
+#    vcenter_user: [enter username]
+#    vcenter_pass: [enter password]
+#    vm_name: [enter VM name]
+##
+
   tasks: 
-  - vsphere_guest:
+  - name: Destroy vCenter VM: "{{ vm_name }}"
+    vsphere_guest:
       vcenter_hostname: "{{ vcenter_name }}"
       username: "{{ vcenter_user }}"
       password: "{{ vcenter_pass }}"
