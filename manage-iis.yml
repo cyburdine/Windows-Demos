@@ -8,16 +8,17 @@
 ### The following vars must be set in order to run
 ###
 #
-#    my_state: [present | absent]
+#    iis_state: [present | absent]
 #
 ###
   tasks:
-    - name: Install IIS
+    - name: Reconfiguring IIS
       win_feature:
         name: "Web-Server"
-        state: "{{ my_state }}"
+        state: "{{ iis_state }}"
         restart: yes
         include_sub_features: yes
         include_management_tools: yes
-    - win_reboot:
-      when: my_state == "absent"
+    - name: Rebooting Server to finsh disabling IIS
+      win_reboot:
+        when: iis_state == "absent"

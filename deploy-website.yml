@@ -4,8 +4,11 @@
   gather_facts: false
 
   vars: 
-    webarchive: ameren_corpsite.zip
-
+##
+## Below are the required variables that needed to run successfully.
+##
+#    webarchive: [file name of zipfile that contains the website housed on GitHub:cyburdine/Windows-Demos/files] 
+##
   tasks:
     - name: Ensure website directory structure exists
       win_file:
