@@ -1,5 +1,5 @@
 - name: Provision instances
-  hosts: all
+  hosts: 127.0.0.1
   connection: local
   gather_facts: False
 
@@ -26,12 +26,10 @@
 
   tasks: 
   - vsphere_guest:
-      #vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
-      #username: "{{ lookup('env', 'VMWARE_USER') }}"
-      #password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
-      vcenter_hostname: "{{ vcenter_name }}"
-      username: "{{ vcenter_user }}"
-      password: "{{ vcenter_pass }}"
+#      vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
+      vcenter_hostname: 172.16.32.2
+      username: "{{ lookup('env', 'VMWARE_USER') }}"
+      password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
       guest: "{{ vm_name }}"
       from_template: yes
       template_src: "{{ vm_template }}"
