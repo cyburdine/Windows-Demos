@@ -1,0 +1,24 @@
+- name: Destroy vCenter instance
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  vars:
+##
+## Below are the required variables that need to be set for this to run properly
+##
+#    vcenter_name: [ip/fqdn of vcenter]
+#    vcenter_user: [vcenter user]
+#    vcenter_pass: [vcenter password]
+#    vm_name: [name of vm to be destroyed]
+##
+
+  tasks: 
+  - name: Destroying Instance: "{{ vm_name }}"
+    vsphere_guest:
+      vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
+      username: "{{ lookup('env', 'VMWARE_USER') }}"
+      password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
+      guest: "{{ vm_name }}"
+      state: absent
+      force: yes
