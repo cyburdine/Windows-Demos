@@ -14,7 +14,7 @@
 ##
 
   tasks: 
-  - name: Destroying Instance: "{{ vm_name }}"
+  - name: Destroying Instance
     vsphere_guest:
       vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
       username: "{{ lookup('env', 'VMWARE_USER') }}"
