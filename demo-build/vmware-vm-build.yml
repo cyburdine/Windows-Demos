@@ -7,7 +7,7 @@
 ##
 ## Below are the variables that need to be set for this to run properly
 ##
-#   vcenter_name: [ip/fqdn of vcenter]
+#    vcenter_name: [ip/fqdn of vcenter]
 #    vcenter_user: [vcenter user]
 #    vcenter_pass: [vcenter password]
 #    vm_name: [name of vm to be built]
@@ -26,9 +26,12 @@
 
   tasks: 
   - vsphere_guest:
-      vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
-      username: "{{ lookup('env', 'VMWARE_USER') }}"
-      password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
+      #vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
+      #username: "{{ lookup('env', 'VMWARE_USER') }}"
+      #password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
+      vcenter_hostname: "{{ vcenter_name }}"
+      username: "{{ vcenter_user }}"
+      password: "{{ vcenter_pass }}"
       guest: "{{ vm_name }}"
       from_template: yes
       template_src: "{{ vm_template }}"
