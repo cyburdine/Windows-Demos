@@ -1,4 +1,4 @@
-- name: Provision instances
+- name: This Playbook provisions instances in vCenter
   hosts: localhost
   connection: local
   gather_facts: False
@@ -25,22 +25,23 @@
 ##
 
   tasks: 
-  - vsphere_guest:
-#      vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
-      vcenter_hostname: 172.16.32.2
+  - name: Provisioning a VM
+    vsphere_guest:
+      vcenter_hostname: "{{ lookup('env', 'VMWARE_HOST') }}"
       username: "{{ lookup('env', 'VMWARE_USER') }}"
       password: "{{ lookup('env', 'VMWARE_PASSWORD') }}"
+      state: powered_on
       guest: "{{ vm_name }}"
       from_template: yes
       template_src: "{{ vm_template }}"
       vm_extra_config:
         notes: "{{ vm_notes }}"
+        folder: "{{ vm_folder }}"
       vm_disk:
         disk1:
           size_gb: "{{ disk1_size }}"
           type: "{{ disk1_type }}"
           datastore: "{{ disk1_datastore }}"
-          folder: "{{ vm_folder }}"
       vm_nic:
         nic1:
           type: vmxnet3
