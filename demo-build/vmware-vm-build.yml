@@ -54,10 +54,3 @@
       esxi:
         datacenter: "{{ vm_datacenter }}"
         hostname: "{{ vm_hostname }}"
-
-  - name: Wait for WinRM port to be open
-    wait_for:
-      host: "{{ ansible_host | default(inventory_hostname) }}"
-      port: 5985
-      delay: 15
-      timeout: 600
