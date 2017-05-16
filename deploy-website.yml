@@ -11,7 +11,7 @@
 #    my_vm_ipaddress: "{{ hostvars['inventory_hostname']['guest']['ipaddress'] }}"
 ##
   tasks:
-    - debug: var=hostvars['inventory_hostname']['guest']['ipaddress']
+    - debug: var=hostvars[ "{{ inventory_hostname }}" ]['guest']['ipaddress']
 
     - name: Ensure website directory structure exists
       win_file:
