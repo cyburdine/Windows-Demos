@@ -9,9 +9,11 @@
 ##
 #    webarchive: [file name of zipfile that contains the website housed on GitHub:cyburdine/Windows-Demos/files] 
 #    my_vm_ipaddress: "{{ hostvars['inventory_hostname']['guest']['ipaddress'] }}"
+     my_vm_ipaddress: 10.0.100.200
 ##
   tasks:
-    - debug: var=hostvars[ "{{ inventory_hostname }}" ]['guest']['ipaddress']
+    - name: display ip address
+      debug: var=hostvars[ {{ inventory_hostname }} ]['guest']['ipaddress']
 
     - name: Ensure website directory structure exists
       win_file:
