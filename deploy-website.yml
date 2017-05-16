@@ -8,7 +8,7 @@
 ## Below are the required variables that needed to run successfully.
 ##
 #    webarchive: [file name of zipfile that contains the website housed on GitHub:cyburdine/Windows-Demos/files] 
-     my_vm_ipaddress: {{ hostvars['inventory_hostname']['guest']['ipaddress'] }}
+     my_vm_ipaddress: "{{ hostvars['inventory_hostname']['guest']['ipaddress'] }}"
 ##
   tasks:
     - name: Ensure website directory structure exists
