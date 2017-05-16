@@ -1,4 +1,4 @@
-- name: This is an Ansible connection test
+- name: Testing Ansible connectivity
   hosts: all
   connection: local
   gather_facts: False
