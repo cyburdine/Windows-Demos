@@ -1,7 +1,7 @@
 ---
 - name: Download, Unpack and Deploy Energy website
   hosts: all 
-  gather_facts: false
+  gather_facts: true
 
   vars: 
 ##
@@ -10,6 +10,10 @@
 #    webarchive: [file name of zipfile that contains the website housed on GitHub:cyburdine/Windows-Demos/files] 
 ##
   tasks:
+    _ name: Capture the default IP address of server
+      debug: var=ansible_all_ipv4_addresses
+      debug: var=ansible_default_ipv4.address
+
     - name: Ensure website directory structure exists
       win_file:
         path: C:\sites\energy
@@ -42,7 +46,7 @@
         name: "Energy"
         state: started
         port: 80
-        ip: 10.0.100.53
+        ip: 10.0.100.58
         application_pool: DefaultAppPool
         physical_path: c:\sites\energy\
         parameters: logfile.directory:c:\sites\logs
