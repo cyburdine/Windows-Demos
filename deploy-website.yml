@@ -11,8 +11,8 @@
 ##
   tasks:
     _ name: Capture the default IP address of server
-      debug: var=ansible_all_ipv4_addresses
-      debug: var=ansible_default_ipv4.address
+     # debug: var=ansible_default_ipv4.address
+      debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
 
     - name: Ensure website directory structure exists
       win_file:
