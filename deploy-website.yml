@@ -11,7 +11,9 @@
 ##
   tasks:
     - name: Print IP Address
-      debug: myvar="{{ ipaddress }}"
+      {% for host in groups['all'] %}
+        {{ debug: var=hostvars[host]['ansible_eth0']['ipv4']['address'] }}
+      {% endfor %}
     - name: Ensure website directory structure exists
       win_file:
         path: C:\sites\energy
