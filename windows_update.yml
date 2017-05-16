@@ -1,0 +1,7 @@
+- name: Run various tasks on Windows
+  hosts: all
+  gather_facts: False
+  connection: local
+    
+  roles:
+  - windows
