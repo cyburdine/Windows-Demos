@@ -10,8 +10,8 @@
 #    webarchive: [file name of zipfile that contains the website housed on GitHub:cyburdine/Windows-Demos/files] 
 ##
   tasks:
-    _ name: Capture the default IP address of server
-     # debug: var=ansible_default_ipv4.address
+    - name: Capture the default IP address of server
+      debug: var=ansible_default_ipv4.address
       debug: var=hostvars[inventory_hostname]['ansible_default_ipv4']['address']
 
     - name: Ensure website directory structure exists
