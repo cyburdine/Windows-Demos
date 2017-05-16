@@ -58,7 +58,7 @@
   - name: Wait for WinRM port to be open
     local_action:
       module: wait_for
-        host={{ inventory_host }}
-        port=5985
-        delay=1
-        timeout=300
+        host: "{{ ansible_host | default(inventory_hostname) }}"
+        port: 5985
+        delay: 1
+        timeout: 300
