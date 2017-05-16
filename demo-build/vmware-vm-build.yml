@@ -60,4 +60,4 @@
       host: "{{ ansible_host | default(inventory_hostname) }}"
       port: 5985
       delay: 15
-      timeout: 300
+      timeout: 600
