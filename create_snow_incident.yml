@@ -7,13 +7,13 @@
   vars:
 #    Username: [snow username]
 #    Password: [snow password]
-    vm_hostname: "{{ hostvars[inventory_hostname]['guest']['hostname'] }}"
-    vm_os: "{{ hostvars[inventory_hostname]['guest']['guestfullname'] }}"
-    vm_ipaddress: "{{ hostvars[inventory_hostname]['guest']['ipaddress'] }}"
-    vm_vmwarename: "{{ hostvars[inventory_hostname]['config']['name'] }}"
-    vm_powerstate: "{{ hostvars[inventory_hostname]['runtime']['powerstate'] }}"
-    vm_maxMEMusage: "{{ hostvars[inventory_hostname]['runtime']['maxmemoryusage'] }}"
-    vm_maxCPUusage: "{{hostvars[inventory_hostname]['runtime']['maxcpuusage'] }}"
+#    vm_hostname: "{{ hostvars[inventory_hostname]['guest']['hostname'] }}"
+#    vm_os: "{{ hostvars[inventory_hostname]['guest']['guestfullname'] }}"
+#    vm_ipaddress: "{{ hostvars[inventory_hostname]['guest']['ipaddress'] }}"
+#    vm_vmwarename: "{{ hostvars[inventory_hostname]['config']['name'] }}"
+#    vm_powerstate: "{{ hostvars[inventory_hostname]['runtime']['powerstate'] }}"
+#    vm_maxMEMusage: "{{ hostvars[inventory_hostname]['runtime']['maxmemoryusage'] }}"
+#    vm_maxCPUusage: "{{hostvars[inventory_hostname]['runtime']['maxcpuusage'] }}"
     snow_urgency: 1
 
   roles:
