@@ -1,0 +1,10 @@
+---
+- name: Removing Energy IIS site
+  win_iis_website:
+    name: "Energy"
+    state: absent
+
+- name: Remove website directory structure
+  win_file:
+    path: C:\sites
+    state: absent

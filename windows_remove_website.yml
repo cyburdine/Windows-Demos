@@ -1,0 +1,8 @@
+---
+- name: Download, Unpack and Deploy Energy website
+  hosts: all
+  gather_facts: False
+  connection: local
+
+  roles:
+  - windows_remove_website
