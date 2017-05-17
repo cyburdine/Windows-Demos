@@ -1,0 +1,23 @@
+###
+#
+#  winusername: [Username]
+#  winfullname: [Full Name]
+#  winpassword: [Password]
+#  userstatus: [present | abasent]
+#  
+###
+- name: Ensure named user exists
+  win_user:
+    name: "{{ winusername}}"
+    fullname: "{{ winfullname }}"
+    password: "{{ winpassword }}"
+    state: present
+    groups:
+      - Users
+  when: userstatus == "present"
+
+- name: Ensure named user does not exist
+  win_user:
+    name: "{{ winusername }}"
+    state: absent
+  when: userstatus == "absent"

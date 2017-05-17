@@ -1,0 +1,7 @@
+- name: Manage local users on a Windows Server
+  hosts: all
+  gather_facts: False
+  connection: local
+    
+  roles:
+  - windows_user_manage
