@@ -13,7 +13,7 @@
       "short_description":"Manually created with Ansible",
       "comments":"more info",
       "urgency":"1"}
-    status_code: 200
+    status_code: 201
     validate_certs: no
   no_log: True
   failed_when: false
