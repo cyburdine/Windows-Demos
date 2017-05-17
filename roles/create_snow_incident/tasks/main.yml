@@ -11,9 +11,15 @@
     body: >
       {"opened_by":"Ansible",
       "short_description":"Manually created with Ansible",
-      "comments":"more info",
-      "urgency":"1"}
+      "comments":"
+        VM Hostname: {{ vm_hostname }}
+        VM VMware Name: {{ vm_vmwarename }}
+        VM IP Address: {{ vm_ipaddress }}
+        ",
+      "urgency":"{{ snow_urgency }}",
+      "impact":"{{ snow_urgency }}",
+      "priority":"{{ snow_urgency }}"}
     status_code: 201
     validate_certs: no
-  no_log: True
-  failed_when: false
+#  no_log: True
+#  failed_when: false
