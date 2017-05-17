@@ -1,0 +1,6 @@
+- name: Checking to see if WinRM port is open (could take a while)
+  wait_for:
+    host: "{{ ansible_host | default(inventory_hostname) }}"
+    port: 5985
+    delay: 15
+    timeout: 600

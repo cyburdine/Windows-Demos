@@ -1,0 +1,7 @@
+- name: Check to see if Ansible can connect and manage a host
+  hosts: all
+  gather_facts: False
+  connection: local
+    
+  roles:
+  - ansible_check

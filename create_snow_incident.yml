@@ -1,0 +1,7 @@
+- name: Create Servce Now Incident Ticket
+  hosts: all
+  gather_facts: False
+  connection: local
+    
+  roles:
+  - create_snow_incident

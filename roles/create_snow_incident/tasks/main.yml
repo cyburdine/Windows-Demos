@@ -1,0 +1,9 @@
+- name: Posting to SNOW API
+  uri:
+    url: https://dev12140.service-now.com/api/now/table/incident
+    user: "{{ Username }}"
+    password: "{{ Password }}"
+    method: POST
+    body: "{{ snow_ticket_content | default('"short_description":"Default Value"') }}"
+    body_format: json
+    HEADER_Content-Type: "application/json"
