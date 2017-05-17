@@ -10,7 +10,7 @@
   win_user:
     name: "{{ winusername}}"
     fullname: "{{ winfullname }}"
-    password: "{{ winpassword }}"
+#    password: "{{ winpassword }}"
     state: present
     groups:
       - Users
