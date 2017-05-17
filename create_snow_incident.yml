@@ -1,5 +1,5 @@
 - name: Create Servce Now Incident Ticket
-  hosts: localhost
+  hosts: "{{ target }}"
   gather_facts: False
   connection: local
 #  ignore_errors: yes

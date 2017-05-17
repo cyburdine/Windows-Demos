@@ -10,7 +10,7 @@
     body_format: json
     body: >
       {"opened_by":"Ansible",
-      "short_description":"Manually created with Ansible",
+      "short_description":"{{ snow_short_description }}",
       "comments":"
         VM Hostname: {{ vm_hostname }}
         VM VMware Name: {{ vm_vmwarename }}
