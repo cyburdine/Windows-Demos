@@ -4,6 +4,16 @@
     user: "{{ Username }}"
     password: "{{ Password }}"
     method: POST
-    body: "{{ snow_ticket_content | default('"short_description":"Default Value"') }}"
+    return_content: no
+    headers:
+      Content-Type: application/json
     body_format: json
-    HEADER_Content-Type: "application/json"
+    body: >
+      {"opened_by":"Ansible",
+      "short_description":"Manually created with Ansible",
+      "comments":"more info",
+      "urgency":"1"}
+    status_code: 200
+    validate_certs: no
+  no_log: True
+  failed_when: false

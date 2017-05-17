@@ -1,7 +1,8 @@
 - name: Create Servce Now Incident Ticket
-  hosts: all
+  hosts: localhost
   gather_facts: False
   connection: local
-    
+  ignore_errors: yes
+
   roles:
   - create_snow_incident
