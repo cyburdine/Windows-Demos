@@ -1,0 +1,11 @@
+- name: Gather facts about a particular VM running on VMware
+  hosts: localhost
+  gather_facts: true
+  connection: local
+
+  vars_prompt:
+    - name: Password
+      prompt: vCenter password
+
+  roles:
+  - gather_vmware_vm_facts

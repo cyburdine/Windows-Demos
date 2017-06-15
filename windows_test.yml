@@ -1,0 +1,30 @@
+---
+- hosts: windows
+  vars:
+    dotnet_build_packages:
+      - https://dscmoestorage.blob.core.windows.net/cfgpoc/BuildTools_Full_2013.exe
+      - https://dscmoestorage.blob.core.windows.net/cfgpoc/BuildTools_Full_2015.exe
+    dotnet_sdk_packages:
+      - https://dscmoestorage.blob.core.windows.net/cfgpoc/NDP451-KB2861696-x86-x64-DevPack.exe
+      - https://dscmoestorage.blob.core.windows.net/cfgpoc/NDP452-KB2901951-x86-x64-DevPack.exe
+      - https://dscmoestorage.blob.core.windows.net/cfgpoc/NDP46-TargetingPack-KB3045566.exe
+      - https://dscmoestorage.blob.core.windows.net/cfgpoc/NDP461-DevPack-KB3105179-ENU.exe
+    ansible_port: 5985
+    ansible_connection: winrm
+    ansible_winrm_transport: basic
+    ansible_user: justin
+    ansible_password: shy7LOEshy7LOE9!
+    ansible_winrm_server_cert_validation: ignore
+  tasks:
+  - name: .NET Build Tools | Install
+    win_package: 
+      path: "{{ item }}"
+      state: present
+      arguments: "/Quiet"
+    with_items: "{{ dotnet_build_packages }}"
+  - name: .NET SDK | Install
+    win_package:
+      path: "{{ item }}"
+      state: present
+      arguments: "/Quiet"
+    with_items: "{{ dotnet_sdk_packages }}"
